@@ -5,7 +5,8 @@ export function get_altered_options
         if (!partial_changes) { return out; }
         if (typeof partial_changes == 'object') { 
             for (let k in partial_changes) {
-                if (typeof partial_changes[k] == 'object' && typeof out[k] == 'object') {
+                let one_is_array = (Array.isArray(partial_changes[k]) || Array.isArray(out[k]));
+                if (!one_is_array && typeof partial_changes[k] == 'object' && typeof out[k] == 'object') {
                     out[k] = get_altered_options(out[k], partial_changes[k] as any);
                 } else {
                     (out as any)[k] = partial_changes[k];
