@@ -34,3 +34,12 @@ export async function wait_ms(n:number):Promise<void> {
         setTimeout(resolve, n);
     })
 }
+
+declare const _custom_ts_type_error: unique symbol
+export type COMPILETIME_TYPE_ERROR = typeof _custom_ts_type_error;
+
+export type ReturnType<T> = T extends (...params:any) => infer U ? U: COMPILETIME_TYPE_ERROR;
+
+export type PromiseResult<T> = T extends Promise<infer U> ? U: COMPILETIME_TYPE_ERROR;
+
+export { Expand, ExpandDeep } from 'type-expand';

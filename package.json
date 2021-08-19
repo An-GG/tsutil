@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/An-GG/tsutil/issues"
   },
-  "homepage": "https://github.com/An-GG/tsutil#readme"
+  "homepage": "https://github.com/An-GG/tsutil#readme",
+  "dependencies": {
+    "type-expand": "^1.0.0"
+  }
 }
